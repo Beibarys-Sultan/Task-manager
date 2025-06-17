@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: task_manager
+  profiles:
+    active: dev
