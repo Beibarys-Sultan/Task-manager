@@ -11,7 +11,7 @@ This is a RESTful Task Management system built with **Spring Boot**, **PostgreSQ
 - **PostgreSQL 16**
 - **Lombok**
 - **Flyway (for DB migrations)**
-- **Docker & Docker Compose**
+- **Docker**
 - **Swagger UI**
 
 ---
