@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.LocalDateTime;
-import java.util.stream.Collectors;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -28,16 +29,17 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<ErrorResponse> handleException(MethodArgumentNotValidException ex) {
 
-        String errorMessage = ex.getBindingResult()
+        Map<String, String> errorMap = new HashMap<>();
+
+        ex.getBindingResult()
                 .getFieldErrors()
-                .stream()
-                .map(error -> error.getField() + ": " + error.getDefaultMessage())
-                .collect(Collectors.joining("; "));
+                .forEach(error -> errorMap.put(error.getField(), error.getDefaultMessage()));
 
         ErrorResponse errorResponse = ErrorResponse.builder()
                 .errorCode(HttpStatus.BAD_REQUEST.value())
                 .error(HttpStatus.BAD_REQUEST.getReasonPhrase())
-                .errorMessage(errorMessage)
+                .errorMessage("Validation Failed")
+                .validationErrors(errorMap)
                 .timestamp(LocalDateTime.now())
                 .build();
 
