@@ -23,13 +23,13 @@ This is a RESTful Task Management system built with **Spring Boot**, **PostgreSQ
 Make sure you have generated the JAR file:
 
 ```
-./mvnw clean package
+./mvnw clean package -DskipTests
 ```
 
 or 
 
 ```
-mvn clean package
+mvn clean package -DskipTests
 ```
 
 ### 2. Build and run containers
