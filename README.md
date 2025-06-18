@@ -42,7 +42,7 @@ docker compose up --build
 
 ### 3. Access the API
 
-- Swagger UI: [http:/localhost:8080/swagger-ui/html](http:/localhost:8080/swagger-ui/html)
+- Swagger UI: [http:/localhost:8080/swagger-ui.html](http:/localhost:8080/swagger-ui.html)
 - API base URL: [http://localhost:8080/tasks](http://localhost:8080/tasks)
 
 ### Examples of using the API:
