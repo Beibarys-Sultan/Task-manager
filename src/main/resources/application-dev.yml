@@ -1,9 +1,10 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/task_manager
-    username: postgres
-    password: postgres
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: validate
     show-sql: true
+    database: postgresql
